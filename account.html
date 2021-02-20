@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if error %}
+    <div class="alert alert-danger text-center font-weight-bold" role="alert">
+          {{ error }}!
+    </div>
+{% endif %}
+
+
+<main role="main" class="container" style = "padding:25px;">
+          <div class="row">
+            <div class="col-md-8">
+                <article class="media content-section">
+                    <div class="media-body">
+                        <h2 class="article-title-about" style = "text-decoration: none;">Account Information</h2>
+                        <hr class = "hr1">
+                        <div class="update">
+                            <form action = "/account" method = "post">
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <textarea autocomplete="off"  class="form-control" name="username"  rows="2" cols="10" >{{ username }}</textarea>
+                                    <input type = "hidden" name = "originalusername" value = "{{ username }}">
+                                </div>
+                                {% if not favsport %}
+                                    <div class="form-group">
+                                        <label>Favorite Sport</label>
+                                        <textarea class="form-control" autofocus placeholder = "Your Favorite Sport" name="favsport" rows="1" cols = "10"></textarea>
+                                        <input type = "hidden" name = "originalfavsport" value = "{{ favsport }}">
+                                    </div>
+                                {% else %}
+                                    {% for fav in favsport %}
+                                        <div class="form-group">
+                                            <label>Favorite Sport</label>
+                                            <textarea class="form-control"  placeholder = "Your Favorite Sport" name="favsport" rows="1" cols = "10">{{ fav.favsport }}</textarea>
+                                            <input type = "hidden" name = "originalfavsport" value = "{{ fav.favsport }}">
+                                        </div>
+                                    {% endfor %}
+
+                                {% endif %}
+
+                                {% if not description %}
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control blogcontent" placeholder = "Tell us about yourself!" name="description" rows="25" cols="10"></textarea>
+                                        <input type = "hidden" name = "originaldescription" value = "{{ description }}">
+                                    </div>
+                                {% else %}
+                                    {% for desc in description %}
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control blogcontent" placeholder = "Tell us about yourself!" name="description" rows="25" cols="10">{{ desc.description }}</textarea>
+                                            <input type = "hidden" name = "originaldescription" value = "{{ desc.description }}">
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+{% endblock %}
