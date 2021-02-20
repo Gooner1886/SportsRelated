@@ -39,7 +39,7 @@ Home Route -
 
 The Homepage Route or the home route consists of a carousel of sports images followed by the Blog feed where users can read blogs posted by themselves or other users.
 The blogs posted include the title of the blog, the Author's name, and the date and time at which the blog was posted or last updated along with the blog content.
-The blog structure is made by using the <article> tag in html which gives it a formal and neat look.
+The blog structure is made by using the article tag in html which gives it a formal and neat look.
 SportsRelated's Homepage also consists of a sidebar with several links i.e Basic Usage, Announcements, Calendars and Socials that keeps the users notified of the changes or updates made to the web application along with their socials if any user feels the need to interact with them on different social media platforms. Files related to the Home Route are : 'index.html', 'usage.html', 'announcements.html', 'calender.html' and 'socials.html'.
 
 About Route -
